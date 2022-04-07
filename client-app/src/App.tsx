@@ -13,9 +13,9 @@ function App() {
     })
   }, [])
   return (
-    <div className="App">
+    <div>
       <Header as='h2' icon='users' content='ReactNet'/>
-     <h1>Hello Kake !!</h1>
+     <h1 style={{background: 'lightseagreen'}}></h1>
      <List> 
        {activities.map((activity: any) => (
          <List.Item key={activity.id}>
@@ -23,6 +23,7 @@ function App() {
          </List.Item>
        ))}
      </List>
+     
     </div>
   );
 }
