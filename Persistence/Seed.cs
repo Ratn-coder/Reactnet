@@ -45,7 +45,7 @@ namespace Persistence
                     Title= "Past Activity 4",
                     Date = DateTime.Now.AddMonths(2),
                   //  Description= "Activity 2 months in future",
-                    Category= "Outing",
+                    Category= "outing",
                     City= "London",
                     Venue= "Somewhere on hillstation",
                 },
