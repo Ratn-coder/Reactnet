@@ -10,6 +10,8 @@ using Application.Activities;
 using MediatR;
 using Application.Core;
 using API.Extensions;
+using API.Models;
+using Microsoft.Extensions.Options;
 
 namespace API
 {
@@ -27,7 +29,10 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.Configure<ActivityDatabaseSettings>(_config.GetSection(nameof(ActivityDatabaseSettings)));
+            services.AddSingleton<IActivityDatabaseSettings>(provider =>
+            provider.GetRequiredService<IOptions<ActivityDatabaseSettings>>().Value);
+            services.AddScoped<ActivityService>();
             services.AddControllers();
             services.AddApplicationServices(_config);
         }
